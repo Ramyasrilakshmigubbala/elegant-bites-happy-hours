@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -6,6 +5,17 @@ import { cn } from '@/lib/utils';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleReservationClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const reservationSection = document.getElementById('reservation');
+    if (reservationSection) {
+      reservationSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +50,7 @@ const Navbar = () => {
             <a href="#testimonials" className="hover:text-restaurant-gold transition-colors">Testimonials</a>
             <a href="#contact" className="hover:text-restaurant-gold transition-colors">Contact</a>
             <button
+              onClick={handleReservationClick}
               className="bg-restaurant-green text-white px-6 py-2 rounded-full hover:bg-restaurant-green-light transition-colors"
             >
               Reservations
@@ -102,7 +113,10 @@ const Navbar = () => {
           </a>
           <button
             className="bg-restaurant-green text-white px-6 py-2 rounded-full hover:bg-restaurant-green-light transition-colors"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => {
+              handleReservationClick;
+              setIsMenuOpen(false);
+            }}
           >
             Reservations
           </button>

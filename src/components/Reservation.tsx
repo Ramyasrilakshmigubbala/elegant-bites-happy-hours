@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Calendar, Clock, Users, UtensilsCrossed } from 'lucide-react';
 
@@ -30,7 +29,7 @@ const Reservation = () => {
   };
   
   return (
-    <section className="section-padding bg-restaurant-green text-white clip-path-slant">
+    <section id="reservation" className="section-padding bg-restaurant-green text-white clip-path-slant">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
